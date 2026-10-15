@@ -1,4 +1,5 @@
 # Quantifying the Limits: Post-Processing Popularity Bias Mitigation Under Varying Base-Model Bias
+**Full thesis:** [Read the PDF](thesis/thesis.pdf)
 
 M.Sc. thesis project, Data Analytics, Stiftung Universität Hildesheim.
 Author: John Paulo
