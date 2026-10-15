@@ -1,0 +1,199 @@
+% ═════════════════════════════════════════════════════════════
+% SECTION 6 — Quantifying the Trade-off
+% New section. Three subsections: efficiency, relative-improvement
+% paradox, marginal sensitivity. Placed after Section 5 (mechanism),
+% before Section 7 (cross-model).
+%
+% Tables used:
+%   tab_efficiency_avg          (inline, 6.1)
+%   tab_efficiency_ml/ab        (appendix — corrected captions provided)
+%   tab_relative_improvement    (inline, 6.2 — corrected caption provided)
+%   tab_marginal_sensitivity    (inline, 6.3 — regenerated, all 4 steps)
+% Figures: fig_efficiency, fig_relative_improvement, fig_marginal_sensitivity
+%
+% Refs: sec:mitigation (§4), sec:zone_migration (§5),
+%       sec:nash_selection (§3), sec:cross_model (§7),
+%       subsec:structural_ceiling (§4.2)
+% ═════════════════════════════════════════════════════════════
+
+\section{Quantifying the Trade-off}
+\label{sec:tradeoff}
+
+Sections~\ref{sec:mitigation} and~\ref{sec:zone_migration} established
+that the achievable long-tail exposure falls with bias and that the
+remaining exposure is sourced from progressively deeper, lower-relevance
+regions of the pool. This section turns those qualitative findings into
+three quantitative, deployment-relevant measures: the efficiency of each
+method as an exchange rate between accuracy and fairness
+(Section~\ref{subsec:efficiency}); the relative improvement each method
+reports over the baseline, which we show to be systematically misleading
+at high bias (Section~\ref{subsec:relative}); and the marginal cost of
+each successive increment of bias (Section~\ref{subsec:marginal}).
+
+\subsection{Efficiency: the Accuracy--Fairness Exchange Rate}
+\label{subsec:efficiency}
+
+We define mitigation efficiency as the APLT@10 gain obtained per
+$1\%$ of NDCG@10 sacrificed relative to the baseline --- the exchange
+rate at which a method converts accuracy into long-tail exposure. A
+higher value indicates a more favourable trade-off.
+Table~\ref{tab:efficiency_avg} reports efficiency averaged across the
+three architectures; the per-architecture breakdown is deferred to
+Appendix~\ref{app:efficiency} (Tables~\ref{tab:efficiency_ml}
+and~\ref{tab:efficiency_ab}). Figure~\ref{fig:efficiency} plots the
+averaged values.
+
+\input{figures/tab_efficiency_avg}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{template/chapters/figures/fig_efficiency.pdf}
+\caption{Mitigation efficiency (APLT gain per $1\%$ NDCG cost) averaged
+         across BPR, NeuMF, and LightGCN, for (a) MovieLens-1M and
+         (b) Amazon Books. Shaded bands show $\pm 1$ std across
+         architectures. Smooth xQuAD and FA*IR are indistinguishable at
+         every bias level; Binary xQuAD is less efficient but its
+         efficiency rises with $\alpha$.}
+\label{fig:efficiency}
+\end{figure}
+
+The central observation is that Smooth xQuAD and FA*IR purchase fairness
+at \emph{the same exchange rate}. Their efficiencies are equal to within
+$0.0001$ at every bias level on both datasets (MovieLens-1M
+$\alpha = 1.0$: $0.0136$ vs.\ $0.0137$; Amazon Books $\alpha = 1.0$:
+$0.0159$ vs.\ $0.0160$), and the two curves in
+Figure~\ref{fig:efficiency} are visually coincident. The two methods
+differ in how \emph{much} fairness they buy --- FA*IR consistently
+reaches a higher absolute APLT (Section~\ref{subsec:mitigation_effectiveness})
+--- but not in the rate at which they trade accuracy for it. This is a
+useful deployment conclusion: the choice between Smooth xQuAD and FA*IR
+is a choice of operating point along a shared trade-off curve, not a
+choice between more- and less-efficient mechanisms.
+
+Binary xQuAD behaves differently in two respects. It is markedly less
+efficient at low bias (MovieLens-1M $\alpha = 1.0$: $0.0074$, roughly
+half the efficiency of the other two methods), but its efficiency
+\emph{rises} with bias, from $0.0074$ at $\alpha = 1.0$ to $0.0104$ at
+$\alpha = 2.0$ on MovieLens-1M. This counter-intuitive trend is
+explained by the zone analysis of Section~\ref{sec:zone_migration}:
+Binary xQuAD promotes only a small number of items and, unlike the
+other methods, scarcely draws on the deep pool, so it incurs little of
+the escalating relevance cost that Z-3 sourcing imposes on Smooth xQuAD
+and FA*IR. Its modest gains thus come at a proportionally smaller
+accuracy cost as bias increases.
+
+\paragraph{A normalisation caveat.}
+The per-architecture tables in Appendix~\ref{app:efficiency} show
+LightGCN achieving the highest nominal efficiency of the three
+architectures at most bias levels. This should not be read as LightGCN
+making better use of mitigation. Efficiency is normalised by NDCG cost
+\emph{expressed as a percentage of the baseline}, and LightGCN has the
+largest baseline NDCG of the three models; an equal absolute accuracy
+sacrifice therefore registers as a smaller percentage, inflating the
+ratio. We resolve this artifact in Section~\ref{sec:cross_model}, where
+absolute APLT gains --- which carry no such normalisation --- tell the
+opposite story.
+
+\subsection{The Relative-Improvement Paradox}
+\label{subsec:relative}
+
+Fairness gains are frequently reported in the literature as relative
+improvements over a baseline. Table~\ref{tab:relative_improvement} shows
+why this convention becomes actively misleading in the high-bias regime.
+
+\input{figures/tab_relative_improvement}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{template/chapters/figures/fig_relative_improvement.pdf}
+\caption{Relative APLT@10 improvement over the baseline (\%), averaged
+         across architectures, for (a) MovieLens-1M and (b) Amazon
+         Books. Shaded bands show $\pm 1$ std across architectures. All
+         methods' relative gains rise steeply with $\alpha$ even though
+         their absolute gains shrink, because the baseline denominator
+         collapses faster than the numerator.}
+\label{fig:relative_improvement}
+\end{figure}
+
+Read naively, the table appears to show mitigation becoming dramatically
+\emph{more} effective as bias increases: Binary xQuAD's relative APLT
+improvement on MovieLens-1M grows more than tenfold, from $41.3\%$ at
+$\alpha = 1.0$ to $423.1\%$ at $\alpha = 2.0$, and every method's
+relative gain rises monotonically with $\alpha$ on both datasets. This
+is the opposite of the structural ceiling established throughout this
+chapter, and it is an artifact.
+
+The resolution is the collapsing denominator. Binary xQuAD's
+\emph{absolute} APLT gain barely changes across the bias range --- on
+MovieLens-1M it moves only from $0.033$ ($0.191 \to 0.224$) at
+$\alpha = 1.0$ to $0.049$ ($0.043 \to 0.092$) at $\alpha = 2.0$ --- but
+the baseline it is measured against falls from $0.191$ to $0.043$.
+Dividing a near-constant numerator by a collapsing denominator
+manufactures a tenfold ``improvement'' from what is in fact a roughly
+constant, and very small, absolute gain. The same mechanism inflates the
+relative figures for Smooth xQuAD and FA*IR, whose relative gains exceed
+$1{,}400\%$ at $\alpha = 2.0$ despite their absolute APLT ceilings having
+roughly halved.
+
+This is the same denominator effect identified for the Nash score in
+Section~\ref{sec:nash_selection}, here in its most extreme form, and it
+carries a concrete methodological warning. \emph{Relative} long-tail
+improvement is not a safe figure of merit under popularity bias: a
+method can report ever-larger percentage gains while its absolute
+contribution stagnates or declines, and two methods with very different
+absolute effectiveness can report similar relative gains. Evaluations of
+fairness mitigation under biased base models should therefore report
+absolute APLT alongside, or in preference to, relative improvement.
+Throughout this thesis we rely on absolute APLT for exactly this reason.
+
+\subsection{Marginal Sensitivity to Bias}
+\label{subsec:marginal}
+
+The final measure asks how the ceiling collapse is distributed across
+the bias range: is each increment of $\alpha$ equally costly, or are
+some steps more damaging than others? Table~\ref{tab:marginal_sensitivity}
+and Figure~\ref{fig:marginal_sensitivity} report the marginal APLT
+decline at each of the four bias steps, averaged across architectures.
+
+\input{figures/tab_marginal_sensitivity}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{template/chapters/figures/fig_marginal_sensitivity.pdf}
+\caption{Absolute APLT decline at each bias step, averaged across BPR,
+         NeuMF, and LightGCN, for (a) MovieLens-1M and (b) Amazon Books.
+         Error bars show $\pm 1$ std across architectures. Larger bars
+         indicate a faster ceiling collapse at that step. FA*IR loses
+         the most at every step, and the method declines peak at the
+         $1.2 \to 1.5$ step.}
+\label{fig:marginal_sensitivity}
+\end{figure}
+
+Two patterns stand out. First, the per-step loss is strictly ordered by
+method aggressiveness at every step: FA*IR loses the most APLT per bias
+increment, followed by Smooth xQuAD, then Binary xQuAD, with the
+baseline losing least in absolute terms. On MovieLens-1M, FA*IR's
+largest single-step loss is $0.110$ APLT units (at the $1.2 \to 1.5$
+step), against Binary xQuAD's $0.032$ at the same step. The methods that
+extract the most long-tail exposure are also those that forfeit the most
+as bias tightens --- consistent with the zone-migration mechanism, in
+which the aggressive methods have the most deep-pool territory to lose.
+
+Second, the method declines are not linear in $\alpha$ but peak at the
+$1.2 \to 1.5$ step and decelerate thereafter (FA*IR on MovieLens-1M:
+$0.084 \to 0.110 \to 0.088 \to 0.065$; on Amazon Books the peak is
+sharper, $0.076 \to 0.122 \to 0.086 \to 0.072$). This non-monotone,
+concave profile matches the candidate-pool evidence of
+Section~\ref{sec:bias_validation}: the pool long-tail fraction falls
+most steeply in absolute terms over the early-to-middle bias range
+(MovieLens-1M $13.3\% \to 9.0\%$ across the $1.2 \to 1.5$ step), where
+the reachable Z-2 supply is being exhausted; once that supply is largely
+gone, each further bias increment removes less that the methods were
+still able to use, and the marginal loss shrinks. The baseline, by
+contrast, loses most in the earliest steps and flattens as its APLT
+approaches zero, reflecting simple saturation rather than pool
+exhaustion. The structural ceiling therefore does not descend at a
+constant rate: its steepest descent coincides with the depletion of the
+reachable pool, precisely the transition that the zone-migration
+crossover in Section~\ref{sec:zone_migration} tracks from the
+reranker's side.

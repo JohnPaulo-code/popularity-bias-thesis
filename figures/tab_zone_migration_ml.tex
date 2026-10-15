@@ -1,0 +1,40 @@
+\begin{table}[htbp]
+\centering
+\caption{MovieLens: mean long-tail items per user in the final top-10, broken down by their origin zone in the 100-candidate pool. Z-1 (1--10): items already in the unmitigated top-10. Z-2 (11--50): items promoted from the reachable zone. Z-3 (51--100): items pulled from the deep pool. Reranking applied using the same implementation as the published cross-model experiments.}
+\label{tab:zone_migration_ml}
+\begin{tabular}{clcccc}
+\toprule
+$\alpha$ & Method & \makecell{Z-1\\(1--10)} & \makecell{Z-2\\(11--50)} & \makecell{Z-3\\(51--100)} & Total \\
+\midrule
+\multirow{4}{*}{1.00}
+ & Baseline & 1.891 & 0.000 & 0.000 & \textbf{1.891} \\
+ \rowcolor{gray!6} & Binary xQuAD & 1.887 & 0.265 & 0.064 & \textbf{2.216} \\
+ & Smooth xQuAD & 1.715 & 2.031 & 0.728 & \textbf{4.474} \\
+ \rowcolor{gray!6} & FA*IR & 1.891 & 2.936 & 1.205 & \textbf{6.032} \\
+\midrule
+\multirow{4}{*}{1.20}
+ & Baseline & 1.328 & 0.000 & 0.000 & \textbf{1.328} \\
+ \rowcolor{gray!6} & Binary xQuAD & 1.326 & 0.317 & 0.099 & \textbf{1.742} \\
+ & Smooth xQuAD & 1.233 & 1.936 & 0.933 & \textbf{4.102} \\
+ \rowcolor{gray!6} & FA*IR & 1.328 & 2.616 & 1.447 & \textbf{5.391} \\
+\midrule
+\multirow{4}{*}{1.50}
+ & Baseline & 0.849 & 0.000 & 0.000 & \textbf{0.849} \\
+ \rowcolor{gray!6} & Binary xQuAD & 0.848 & 0.344 & 0.149 & \textbf{1.341} \\
+ & Smooth xQuAD & 0.800 & 1.616 & 1.061 & \textbf{3.476} \\
+ \rowcolor{gray!6} & FA*IR & 0.849 & 2.053 & 1.503 & \textbf{4.405} \\
+\midrule
+\multirow{4}{*}{1.75}
+ & Baseline & 0.597 & 0.000 & 0.000 & \textbf{0.597} \\
+ \rowcolor{gray!6} & Binary xQuAD & 0.596 & 0.325 & 0.179 & \textbf{1.101} \\
+ & Smooth xQuAD & 0.569 & 1.304 & 1.034 & \textbf{2.907} \\
+ \rowcolor{gray!6} & FA*IR & 0.597 & 1.590 & 1.404 & \textbf{3.590} \\
+\midrule
+\multirow{4}{*}{2.00}
+ & Baseline & 0.425 & 0.000 & 0.000 & \textbf{0.425} \\
+ \rowcolor{gray!6} & Binary xQuAD & 0.425 & 0.302 & 0.189 & \textbf{0.916} \\
+ & Smooth xQuAD & 0.409 & 1.028 & 0.961 & \textbf{2.398} \\
+ \rowcolor{gray!6} & FA*IR & 0.425 & 1.224 & 1.231 & \textbf{2.881} \\
+\bottomrule
+\end{tabular}
+\end{table}

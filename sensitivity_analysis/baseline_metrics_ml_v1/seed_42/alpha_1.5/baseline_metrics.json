@@ -1,0 +1,17 @@
+{
+  "seed": 42,
+  "alpha": 1.5,
+  "metrics": {
+    "NDCG@10": 0.053218275230455,
+    "Recall@10": 0.03937126830888286,
+    "APLT@10": 0.08643165946125705,
+    "ARP@10": 1359.2200532091786
+  },
+  "n_evaluated": 6014,
+  "n_tail_missing": 45,
+  "pool_mean_lt_fraction_in_pool": 0.09072996341868973,
+  "pool_median_lt_fraction_in_pool": 0.05,
+  "pool_users_with_zero_lt_in_pool": 728,
+  "pool_pct_users_zero_lt": 12.105088127702029,
+  "pool_theoretical_max_aplt": 0.09072996341868973
+}

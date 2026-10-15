@@ -1,0 +1,14 @@
+{
+  "model": "NeuMF",
+  "dataset": "AmazonBooks",
+  "seed": 456,
+  "alpha": 2.0,
+  "n_users": 32210,
+  "n_items": 34765,
+  "n_candidates": 100,
+  "n_long_tail": 12897,
+  "n_tail_missing": 3121,
+  "n_test_users": 32054,
+  "epochs": 50,
+  "embedding_dim": 64
+}

@@ -1,0 +1,18 @@
+\begin{table}[htbp]
+\centering
+\caption{Nash score (Eq.~\ref{eq:nash_score}), $(\mathrm{NDCG}/\mathrm{NDCG}_{\mathrm{base}})\times(\mathrm{APLT}/\mathrm{APLT}_{\mathrm{base}})$, at Nash-selected parameters for BPR. The best method per column is bolded. Values rise with $\alpha$ because they are measured relative to a collapsing baseline (see Section~\ref{sec:nash_selection}); compare methods down each column, not across rows.}
+\label{tab:pareto_nash}
+\begin{tabular}{llccccc}
+\toprule
+Dataset & Method & $\alpha=1.0$ & $\alpha=1.2$ & $\alpha=1.5$ & $\alpha=1.75$ & $\alpha=2.0$ \\
+\midrule
+\multirow{3}{*}{MovieLens-1M} & FA*IR & \textbf{2.14} & \textbf{2.71} & \textbf{3.75} & \textbf{4.58} & \textbf{5.44} \\
+\rowcolor{gray!6}  & Smooth xQuAD & 1.85 & 2.38 & 3.25 & 3.96 & 4.75 \\
+ & Binary xQuAD & 1.11 & 1.23 & 1.47 & 1.73 & 2.03 \\
+\midrule
+\multirow{3}{*}{Amazon Books} & FA*IR & \textbf{3.95} & \textbf{5.10} & \textbf{7.12} & \textbf{8.38} & \textbf{10.11} \\
+\rowcolor{gray!6}  & Smooth xQuAD & 3.39 & 4.35 & 6.00 & 7.13 & 8.66 \\
+ & Binary xQuAD & 1.32 & 1.56 & 2.06 & 2.49 & 3.07 \\
+\bottomrule
+\end{tabular}
+\end{table}

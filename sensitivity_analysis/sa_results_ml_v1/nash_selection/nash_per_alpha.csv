@@ -1,0 +1,16 @@
+Dataset,Method,Alpha,Optimal_Param,NDCG_Change_%,APLT_Change_%,Nash_Score
+MovieLens,Binary xQuAD,1.0,0.3,-4.3,+15.9,1.1088
+MovieLens,Binary xQuAD,1.2,0.4,-6.4,+31.1,1.2277
+MovieLens,Binary xQuAD,1.5,0.4,-6.7,+58.0,1.4742
+MovieLens,Binary xQuAD,1.75,0.4,-6.4,+84.5,1.7265
+MovieLens,Binary xQuAD,2.0,0.4,-5.6,+115.2,2.0325
+MovieLens,Smooth xQuAD,1.0,0.9,-21.7,+136.6,1.8518
+MovieLens,Smooth xQuAD,1.2,0.9,-23.0,+208.8,2.3786
+MovieLens,Smooth xQuAD,1.5,0.9,-20.6,+309.5,3.2526
+MovieLens,Smooth xQuAD,1.75,0.9,-18.8,+387.3,3.9561
+MovieLens,Smooth xQuAD,2.0,0.9,-15.8,+463.5,4.7466
+MovieLens,FA*IR,1.0,0.9,-33.0,+219.0,2.1356
+MovieLens,FA*IR,1.2,0.9,-33.2,+305.9,2.7094
+MovieLens,FA*IR,1.5,0.9,-27.7,+418.8,3.7517
+MovieLens,FA*IR,1.75,0.9,-23.9,+501.8,4.582
+MovieLens,FA*IR,2.0,0.9,-19.6,+577.0,5.4439

@@ -1,0 +1,21 @@
+{
+  "seed": 123,
+  "alpha": 1.75,
+  "dataset": "AmazonBooks",
+  "n_users": 33481,
+  "n_items": 36842,
+  "n_candidates": 100,
+  "n_long_tail": 14784,
+  "n_short_head": 22058,
+  "n_tail_missing": 1234,
+  "n_test_users": 33411,
+  "epochs": 50,
+  "embedding_dim": 64,
+  "long_tail_fixed": true,
+  "trainer_key_type": "str",
+  "pool_mean_lt_fraction_in_pool": 0.061048953137600434,
+  "pool_median_lt_fraction_in_pool": 0.03,
+  "pool_users_with_zero_lt_in_pool": 6944,
+  "pool_pct_users_zero_lt": 20.74012126280577,
+  "pool_theoretical_max_aplt": 0.061048953137600434
+}

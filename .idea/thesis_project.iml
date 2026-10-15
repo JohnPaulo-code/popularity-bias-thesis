@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="PYTHON_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/.venv" />
+      <excludeFolder url="file://$MODULE_DIR$/data_preparation" />
+      <excludeFolder url="file://$MODULE_DIR$/evaluation" />
+      <excludeFolder url="file://$MODULE_DIR$/model_training" />
+      <excludeFolder url="file://$MODULE_DIR$/reranking" />
+      <excludeFolder url="file://$MODULE_DIR$/sensitivity_analysis/sa_results_lfm" />
+      <excludeFolder url="file://$MODULE_DIR$/sensitivity_analysis/sa_results_lfm/seed_123" />
+      <excludeFolder url="file://$MODULE_DIR$/sensitivity_analysis/sa_results_lfm/seed_2024" />
+      <excludeFolder url="file://$MODULE_DIR$/sensitivity_analysis/sa_results_lfm/seed_42" />
+      <excludeFolder url="file://$MODULE_DIR$/sensitivity_analysis/sa_results_lfm/seed_456" />
+      <excludeFolder url="file://$MODULE_DIR$/sensitivity_analysis/sa_results_lfm/seed_789" />
+      <excludeFolder url="file://$MODULE_DIR$/original_data" />
+      <excludeFolder url="file://$MODULE_DIR$/sensitivity_analysis/candidates_ml" />
+      <excludeFolder url="file://$MODULE_DIR$/sensitivity_analysis/sa_results_ml" />
+      <excludeFolder url="file://$MODULE_DIR$/cross_model" />
+      <excludeFolder url="file://$MODULE_DIR$/sensitivity_analysis/candidates_pt" />
+      <excludeFolder url="file://$MODULE_DIR$/sensitivity_analysis/candidates_yelp" />
+      <excludeFolder url="file://$MODULE_DIR$/sensitivity_analysis/sa_results_yelp" />
+      <excludeFolder url="file://$MODULE_DIR$/sensitivity_analysis/candidates_ml_seki" />
+      <excludeFolder url="file://$MODULE_DIR$/sensitivity_analysis" />
+      <excludeFolder url="file://$MODULE_DIR$/sensitivity_analysis/sa_results_ml_seki" />
+      <excludeFolder url="file://$MODULE_DIR$/thesis_outputs" />
+      <excludeFolder url="file://$MODULE_DIR$/utils" />
+      <excludeFolder url="file://$MODULE_DIR$/figures" />
+    </content>
+    <orderEntry type="jdk" jdkName="Python 3.10 (thesis_project)" jdkType="Python SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

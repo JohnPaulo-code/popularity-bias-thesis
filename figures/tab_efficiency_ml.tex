@@ -1,0 +1,30 @@
+\begin{table}[htbp]
+\centering
+\caption{MovieLens: mitigation efficiency (APLT gain per 1\% NDCG cost) at Nash-selected parameters. Higher values indicate a more favourable accuracy--fairness trade-off; the highest value in each row is bolded. Within each method, LightGCN attains the highest nominal efficiency at most bias levels, but this reflects its larger baseline NDCG inflating the percentage-normalised denominator rather than a genuinely better trade-off (see Section~\ref{sec:cross_model}).}
+\label{tab:efficiency_ml}
+\begin{tabular}{clccc}
+\toprule
+$\alpha$ & Method & BPR & NeuMF & LightGCN \\
+\midrule
+1.00 & Binary xQuAD & 0.0060 & 0.0079 & \textbf{0.0082} \\
+\rowcolor{gray!6}  & Smooth xQuAD & 0.0119 & 0.0139 & \textbf{0.0152} \\
+ & FA*IR & 0.0125 & 0.0138 & \textbf{0.0147} \\
+\midrule
+1.20 & Binary xQuAD & 0.0065 & 0.0077 & \textbf{0.0088} \\
+\rowcolor{gray!6}  & Smooth xQuAD & 0.0121 & 0.0127 & \textbf{0.0155} \\
+ & FA*IR & 0.0122 & 0.0128 & \textbf{0.0152} \\
+\midrule
+1.50 & Binary xQuAD & 0.0074 & 0.0083 & \textbf{0.0096} \\
+\rowcolor{gray!6}  & Smooth xQuAD & 0.0128 & 0.0128 & \textbf{0.0147} \\
+ & FA*IR & 0.0128 & 0.0128 & \textbf{0.0145} \\
+\midrule
+1.75 & Binary xQuAD & 0.0078 & 0.0096 & \textbf{0.0100} \\
+\rowcolor{gray!6}  & Smooth xQuAD & 0.0123 & 0.0129 & \textbf{0.0144} \\
+ & FA*IR & 0.0125 & 0.0129 & \textbf{0.0144} \\
+\midrule
+2.00 & Binary xQuAD & 0.0088 & \textbf{0.0112} & 0.0112 \\
+\rowcolor{gray!6}  & Smooth xQuAD & 0.0125 & 0.0129 & \textbf{0.0143} \\
+ & FA*IR & 0.0125 & 0.0129 & \textbf{0.0139} \\
+\bottomrule
+\end{tabular}
+\end{table}

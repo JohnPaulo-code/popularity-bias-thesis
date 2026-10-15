@@ -1,0 +1,16 @@
+\begin{table}[htbp]
+\centering
+\caption{Amazon Books: mean long-tail items per user and their mean rank within each zone of the 100-candidate pool (format: \emph{count} (mean rank)). Z-1 = positions 1--10 (baseline top-10), Z-2 = positions 11--50 (promotable), Z-3 = positions 51--100 (deep pool).}
+\label{tab:pool_position_ab}
+\begin{tabular}{cccc}
+\toprule
+$\alpha$ & \makecell{Z-1 (1--10)\\count (mean rank)} & \makecell{Z-2 (11--50)\\count (mean rank)} & \makecell{Z-3 (51--100)\\count (mean rank)} \\
+\midrule
+\rowcolor{gray!8} 1.00 & 1.02 (5.8) & 5.61 (31.4) & 8.44 (76.1) \\
+1.20 & 0.76 (5.8) & 4.35 (31.5) & 6.78 (76.2) \\
+\rowcolor{gray!8} 1.50 & 0.48 (5.9) & 2.96 (31.7) & 4.83 (76.3) \\
+1.75 & 0.35 (5.9) & 2.18 (31.9) & 3.66 (76.4) \\
+\rowcolor{gray!8} 2.00 & 0.24 (6.0) & 1.56 (32.0) & 2.68 (76.5) \\
+\bottomrule
+\end{tabular}
+\end{table}

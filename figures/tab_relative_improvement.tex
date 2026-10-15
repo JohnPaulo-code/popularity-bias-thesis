@@ -1,0 +1,30 @@
+\begin{table}[htbp]
+\centering
+\caption{Relative APLT improvement (\%) at Nash-selected parameters, averaged across BPR, NeuMF, and LightGCN. Binary xQuAD shows a paradoxical increase in relative gain as $\alpha$ rises: the baseline APLT collapses faster than Binary xQuAD's modest absolute gain, inflating the relative figure. The same inflation affects all three methods: every method's relative gain rises with $\alpha$ even though absolute APLT ceilings fall (Section~\ref{subsec:relative}), making relative improvement an unreliable figure of merit under popularity bias.}
+\label{tab:relative_improvement}
+\begin{tabular}{clcc}
+\toprule
+$\alpha$ & Method & MovieLens-1M (\%) & Amazon Books (\%) \\
+\midrule
+1.00 & Binary xQuAD & 41.3\% & 82.4\% \\
+\rowcolor{gray!6}  & Smooth xQuAD & 261.1\% & 533.8\% \\
+ & FA*IR & 374.4\% & 736.4\% \\
+\midrule
+1.20 & Binary xQuAD & 81.5\% & 133.9\% \\
+\rowcolor{gray!6}  & Smooth xQuAD & 420.2\% & 718.2\% \\
+ & FA*IR & 560.7\% & 947.1\% \\
+\midrule
+1.50 & Binary xQuAD & 184.4\% & 220.8\% \\
+\rowcolor{gray!6}  & Smooth xQuAD & 730.5\% & 980.7\% \\
+ & FA*IR & 906.5\% & 1231.5\% \\
+\midrule
+1.75 & Binary xQuAD & 294.9\% & 327.6\% \\
+\rowcolor{gray!6}  & Smooth xQuAD & 979.7\% & 1288.2\% \\
+ & FA*IR & 1168.2\% & 1564.1\% \\
+\midrule
+2.00 & Binary xQuAD & 423.1\% & 352.1\% \\
+\rowcolor{gray!6}  & Smooth xQuAD & 1248.7\% & 1328.3\% \\
+ & FA*IR & 1445.9\% & 1592.2\% \\
+\bottomrule
+\end{tabular}
+\end{table}

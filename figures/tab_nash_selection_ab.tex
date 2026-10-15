@@ -1,0 +1,14 @@
+\begin{table}[htbp]
+\centering
+\caption{Amazon Books: Nash-selected parameter ($\lambda^*$ or $\tau^*$) and corresponding Nash score (in parentheses) at each bias level $\alpha$. The Nash score balances accuracy and fairness improvements over the baseline. Scores rise with $\alpha$ because the baseline APLT collapses, inflating the relative gain (growing headroom); this does not indicate an improving absolute trade-off (see Section~\ref{sec:nash_selection}). Parameters are stable across $\alpha$ up to plateau equivalence, confirming that a single calibration suffices.}
+\label{tab:nash_selection_ab}
+\begin{tabular}{lccccc}
+\toprule
+Method & $\alpha=1.0$ & $\alpha=1.2$ & $\alpha=1.5$ & $\alpha=1.75$ & $\alpha=2.0$ \\
+\midrule
+Binary xQuAD & $\lambda^*=0.3$ (1.324) & $\lambda^*=0.3$ (1.559) & $\lambda^*=0.3$ (2.061) & $\lambda^*=0.3$ (2.494) & $\lambda^*=0.4$ (3.096) \\
+\rowcolor{gray!6} Smooth xQuAD & $\lambda^*=0.9$ (3.385) & $\lambda^*=0.9$ (4.347) & $\lambda^*=0.9$ (5.995) & $\lambda^*=0.9$ (7.133) & $\lambda^*=0.9$ (8.664) \\
+FA*IR & $\tau^*=0.9$ (3.953) & $\tau^*=0.9$ (5.098) & $\tau^*=0.9$ (7.122) & $\tau^*=0.9$ (8.380) & $\tau^*=0.9$ (10.112) \\
+\bottomrule
+\end{tabular}
+\end{table}

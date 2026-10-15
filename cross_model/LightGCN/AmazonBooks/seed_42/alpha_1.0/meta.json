@@ -1,0 +1,14 @@
+{
+  "model": "LightGCN",
+  "dataset": "AmazonBooks",
+  "seed": 42,
+  "alpha": 1.0,
+  "n_users": 34786,
+  "n_items": 38108,
+  "n_candidates": 100,
+  "n_long_tail": 16005,
+  "n_tail_missing": 13,
+  "n_test_users": 34784,
+  "epochs": 50,
+  "embedding_dim": 64
+}

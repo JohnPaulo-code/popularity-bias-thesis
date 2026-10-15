@@ -1,0 +1,19 @@
+{
+  "seed": 42,
+  "alpha": 1.75,
+  "n_users": 6011,
+  "n_items": 2862,
+  "n_candidates": 100,
+  "n_long_tail": 1695,
+  "n_short_head": 1167,
+  "n_tail_missing": 181,
+  "n_test_users": 6010,
+  "epochs": 50,
+  "embedding_dim": 64,
+  "long_tail_fixed": true,
+  "pool_mean_lt_fraction_in_pool": 0.06428048577607719,
+  "pool_median_lt_fraction_in_pool": 0.03,
+  "pool_users_with_zero_lt_in_pool": 1213,
+  "pool_pct_users_zero_lt": 20.179670603892863,
+  "pool_theoretical_max_aplt": 0.06428048577607719
+}

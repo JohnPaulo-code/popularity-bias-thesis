@@ -1,0 +1,14 @@
+{
+  "Binary xQuAD": {
+    "consensus_param": 0.4,
+    "mean_nash_score": 1.5139
+  },
+  "Smooth xQuAD": {
+    "consensus_param": 0.9,
+    "mean_nash_score": 3.2371
+  },
+  "FA*IR": {
+    "consensus_param": 0.9,
+    "mean_nash_score": 3.7245
+  }
+}

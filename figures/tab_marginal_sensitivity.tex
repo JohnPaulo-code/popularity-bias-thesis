@@ -1,0 +1,30 @@
+\begin{table}[htbp]
+\centering
+\caption{Marginal APLT decline per $\alpha$ step at Nash-selected
+parameters, averaged across BPR, NeuMF, and LightGCN. Negative values
+indicate a fall in the APLT ceiling between consecutive bias levels; the
+largest decline in each row is bolded. FA*IR loses the most at every
+step on both datasets. The method declines peak at the $1.2\to1.5$ step
+--- where the candidate-pool long-tail fraction drops most sharply
+(Table~\ref{tab:pool_lt}) --- and decelerate thereafter, while the
+baseline's decline is concentrated in the earliest steps and flattens as
+its APLT approaches zero.}
+\label{tab:marginal_sensitivity}
+\begin{tabular}{llcccc}
+\toprule
+Step & Dataset & Baseline & Binary xQuAD & Smooth xQuAD & FA*IR \\
+\midrule
+$1.0\to1.2$ & MovieLens-1M & $-0.0473$ & $-0.0390$ & $-0.0527$ & $\mathbf{-0.0843}$ \\
+\rowcolor{gray!6}  & Amazon Books & $-0.0217$ & $-0.0161$ & $-0.0469$ & $\mathbf{-0.0756}$ \\
+\midrule
+$1.2\to1.5$ & MovieLens-1M & $-0.0364$ & $-0.0323$ & $-0.0748$ & $\mathbf{-0.1104}$ \\
+\rowcolor{gray!6}  & Amazon Books & $-0.0218$ & $-0.0226$ & $-0.0838$ & $\mathbf{-0.1224}$ \\
+\midrule
+$1.5\to1.75$ & MovieLens-1M & $-0.0169$ & $-0.0203$ & $-0.0653$ & $\mathbf{-0.0883}$ \\
+\rowcolor{gray!6}  & Amazon Books & $-0.0111$ & $-0.0158$ & $-0.0623$ & $\mathbf{-0.0856}$ \\
+\midrule
+$1.75\to2.0$ & MovieLens-1M & $-0.0104$ & $-0.0162$ & $-0.0496$ & $\mathbf{-0.0648}$ \\
+\rowcolor{gray!6}  & Amazon Books & $-0.0069$ & $-0.0146$ & $-0.0549$ & $\mathbf{-0.0715}$ \\
+\bottomrule
+\end{tabular}
+\end{table}

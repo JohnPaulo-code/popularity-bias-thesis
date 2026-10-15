@@ -1,0 +1,14 @@
+{
+  "model": "LightGCN",
+  "dataset": "MovieLens",
+  "seed": 123,
+  "alpha": 2.0,
+  "n_users": 6015,
+  "n_items": 2680,
+  "n_candidates": 100,
+  "n_long_tail": 1513,
+  "n_tail_missing": 363,
+  "n_test_users": 6015,
+  "epochs": 50,
+  "embedding_dim": 64
+}

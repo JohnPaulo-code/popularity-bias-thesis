@@ -1,0 +1,37 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{MovieLens-1M: absolute APLT gain ($\Delta$APLT) and relative NDCG cost ($\Delta$NDCG\%) at Nash-selected parameters across all three model architectures and bias levels. At low bias LightGCN attains the largest absolute APLT gain ($\Delta$APLT), but this advantage reverses by $\alpha=2.0$, where it attains the smallest. Its $\Delta$NDCG\% cost is the lowest of the three architectures at $\alpha\ge1.5$ because its larger baseline NDCG deflates the percentage; this normalisation inflates LightGCN's apparent efficiency (Section~\ref{subsec:gains_crossmodel}).}
+\label{tab:crossarch_gains_ml}
+\begin{tabular}{clcccccc}
+\toprule
+\multirow{2}{*}{$\alpha$} & \multirow{2}{*}{Model} & \multicolumn{2}{c}{Binary xQuAD} & \multicolumn{2}{c}{Smooth xQuAD} & \multicolumn{2}{c}{FA*IR} \\
+ & & $\Delta$APLT & $\Delta$NDCG\% & $\Delta$APLT & $\Delta$NDCG\% & $\Delta$APLT & $\Delta$NDCG\% \\
+\midrule
+\multirow{3}{*}{1.00}
+ & BPR & 0.0324 & 5.38\% & 0.2583 & 21.73\% & 0.4141 & 33.05\% \\
+ \rowcolor{gray!6} & NeuMF & 0.0412 & 5.23\% & 0.2895 & 20.90\% & 0.4263 & 30.86\% \\
+ & LightGCN & 0.0560 & 6.81\% & 0.3177 & 20.94\% & 0.4322 & 29.32\% \\
+\midrule
+\multirow{3}{*}{1.20}
+ & BPR & 0.0414 & 6.38\% & 0.2774 & 22.98\% & 0.4063 & 33.25\% \\
+ \rowcolor{gray!6} & NeuMF & 0.0507 & 6.55\% & 0.2809 & 22.08\% & 0.3818 & 29.73\% \\
+ & LightGCN & 0.0623 & 7.05\% & 0.2911 & 18.80\% & 0.3735 & 24.50\% \\
+\midrule
+\multirow{3}{*}{1.50}
+ & BPR & 0.0492 & 6.67\% & 0.2627 & 20.57\% & 0.3556 & 27.69\% \\
+ \rowcolor{gray!6} & NeuMF & 0.0558 & 6.72\% & 0.2536 & 19.82\% & 0.3228 & 25.26\% \\
+ & LightGCN & 0.0615 & 6.42\% & 0.2177 & 14.78\% & 0.2612 & 18.00\% \\
+\midrule
+\multirow{3}{*}{1.75}
+ & BPR & 0.0504 & 6.44\% & 0.2310 & 18.81\% & 0.2993 & 23.87\% \\
+ \rowcolor{gray!6} & NeuMF & 0.0532 & 5.54\% & 0.2005 & 15.51\% & 0.2435 & 18.87\% \\
+ & LightGCN & 0.0527 & 5.27\% & 0.1574 & 10.90\% & 0.1827 & 12.72\% \\
+\midrule
+\multirow{3}{*}{2.00}
+ & BPR & 0.0490 & 5.57\% & 0.1972 & 15.77\% & 0.2455 & 19.59\% \\
+ \rowcolor{gray!6} & NeuMF & 0.0478 & 4.25\% & 0.1624 & 12.61\% & 0.1902 & 14.76\% \\
+ & LightGCN & 0.0423 & 3.78\% & 0.1117 & 7.83\% & 0.1266 & 9.10\% \\
+\bottomrule
+\end{tabular}
+\end{table}

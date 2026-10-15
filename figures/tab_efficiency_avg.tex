@@ -1,0 +1,30 @@
+\begin{table}[htbp]
+\centering
+\caption{Mitigation efficiency (APLT gain per 1\% NDCG cost) averaged across BPR, NeuMF, and LightGCN. Higher values indicate a more favourable accuracy--fairness trade-off. Smooth xQuAD and FA*IR are statistically indistinguishable in efficiency at every bias level (differences $\le 0.0001$), indicating a shared accuracy--fairness exchange rate; Binary xQuAD is less efficient at low bias but its efficiency rises with $\alpha$.}
+\label{tab:efficiency_avg}
+\begin{tabular}{clcc}
+\toprule
+$\alpha$ & Method & MovieLens-1M & Amazon Books \\
+\midrule
+1.00 & Binary xQuAD & 0.0074 & 0.0095 \\
+\rowcolor{gray!6}  & Smooth xQuAD & 0.0136 & 0.0159 \\
+ & FA*IR & 0.0137 & 0.0160 \\
+\midrule
+1.20 & Binary xQuAD & 0.0077 & 0.0104 \\
+\rowcolor{gray!6}  & Smooth xQuAD & 0.0134 & 0.0170 \\
+ & FA*IR & 0.0134 & 0.0171 \\
+\midrule
+1.50 & Binary xQuAD & 0.0084 & 0.0136 \\
+\rowcolor{gray!6}  & Smooth xQuAD & 0.0134 & 0.0170 \\
+ & FA*IR & 0.0134 & 0.0170 \\
+\midrule
+1.75 & Binary xQuAD & 0.0091 & 0.0139 \\
+\rowcolor{gray!6}  & Smooth xQuAD & 0.0132 & 0.0157 \\
+ & FA*IR & 0.0133 & 0.0158 \\
+\midrule
+2.00 & Binary xQuAD & 0.0104 & 0.0135 \\
+\rowcolor{gray!6}  & Smooth xQuAD & 0.0132 & 0.0147 \\
+ & FA*IR & 0.0131 & 0.0147 \\
+\bottomrule
+\end{tabular}
+\end{table}
